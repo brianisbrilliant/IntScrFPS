@@ -1,2 +1,2 @@
 # IntScrFPS
-A FPS Puzzle Platformer made in Unity for Interactive Scripting at ButlerCC.
+An FPS Puzzle Platformer made in Unity for Interactive Scripting at ButlerCC.
