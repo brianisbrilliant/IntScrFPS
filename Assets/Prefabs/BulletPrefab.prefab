@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 1527704872669009470}
   m_Layer: 0
   m_Name: BulletPrefab
-  m_TagString: Untagged
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -147,7 +147,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.1
@@ -211,5 +211,5 @@ TrailRenderer:
     shadowBias: 0.5
     generateLightingData: 0
   m_MinVertexDistance: 0.1
-  m_Autodestruct: 0
+  m_Autodestruct: 1
   m_Emitting: 1

@@ -31,6 +31,6 @@ public class SlugThrower : MonoBehaviour
 		Debug.Log("Pow!");
 		Rigidbody rb = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
 		rb.AddRelativeForce(Vector3.forward * bulletSpeed, ForceMode.Impulse);
-		Destroy(rb.gameObject, 1f);
+		Destroy(rb.gameObject, 3f);
 	}
 }
