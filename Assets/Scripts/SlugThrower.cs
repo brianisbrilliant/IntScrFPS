@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class SlugThrower : MonoBehaviour
+public class SlugThrower : MonoBehaviour, IItem
 {
 	private Transform bulletSpawn;
 
@@ -32,15 +32,6 @@ public class SlugThrower : MonoBehaviour
 		aud = this.GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-		// move this to the PlayerController script at some point.
-        if(Input.GetKey(KeyCode.Mouse0)) {
-			Use();
-		}
-    }
-
 	public void Use() {
 		if(canFire) {
 			Debug.Log("Pow!");
@@ -54,6 +45,10 @@ public class SlugThrower : MonoBehaviour
 			aud.PlayOneShot(shot);
 			StartCoroutine(WaitToFire());
 		}
+	}
+
+	public void AltUse() {
+		Debug.Log("Alt fire!");
 	}
 
 	IEnumerator WaitToFire() {
