@@ -4,3 +4,4 @@ An FPS Puzzle Platformer made in Unity for Interactive Scripting at [ButlerCC](h
 - Brenton Luty
 - Quentin Stuchlik
 - Colin Siemon
+- Dante Bonomini
