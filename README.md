@@ -5,3 +5,4 @@ An FPS Puzzle Platformer made in Unity for Interactive Scripting at [ButlerCC](h
 - Quentin Stuchlik
 - Colin Siemon
 - Dante Bonomini
+- Bryanna Baker
