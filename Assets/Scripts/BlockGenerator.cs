@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BlockGenerator : MonoBehaviour, IItem
 {
@@ -52,6 +53,9 @@ public class BlockGenerator : MonoBehaviour, IItem
             else if(hit.collider.tag == "wall"){
                 Debug.Log("Cannot Kill Walls!!");
             }
+        }
+        if (Input.GetKeyDown(KeyCode.Tab)){
+            SceneManager.LoadScene(0);
         }
     }
 }
