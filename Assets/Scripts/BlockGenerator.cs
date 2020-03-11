@@ -33,6 +33,7 @@ public class BlockGenerator : MonoBehaviour, IItem
                     Destroy(objects[0]);
                     count--;
                 }
+                
             }
         }
     }
