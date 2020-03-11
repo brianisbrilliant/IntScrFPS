@@ -5,6 +5,8 @@ using UnityEngine;
 public class BlockGenerator : MonoBehaviour, IItem
 {
     public GameObject BlockyBlock;
+
+    private int count = 0;
     private Vector3 myMouse;
     // Start is called before the first frame update
     void Start()
@@ -23,6 +25,13 @@ public class BlockGenerator : MonoBehaviour, IItem
                 Debug.Log("I got a wall!!!");
                 //instantiate cube
                 Instantiate(BlockyBlock, hit.point, Quaternion.identity);
+                count++;
+                if(count > 3){
+                    GameObject[] objects;
+                    objects = GameObject.FindGameObjectsWithTag("BlockyBlock");
+                    Destroy(objects[0]);
+                    count--;
+                }
             }
         }
     }
@@ -38,6 +47,7 @@ public class BlockGenerator : MonoBehaviour, IItem
                 Debug.Log("Time to die BlockyBlock");
                 //instantiate cube
                 Destroy(hit.collider.gameObject);
+                count--;
             }
             else if(hit.collider.tag == "wall"){
                 Debug.Log("Cannot Kill Walls!!");
