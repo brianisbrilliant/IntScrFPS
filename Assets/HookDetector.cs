@@ -16,7 +16,8 @@ public class HookDetector : MonoBehaviour
         if(other.tag == "hookable"){
             Debug.Log("I've been hooked 0");
             grappleCheck.hooked = true;
-            Debug.Log(grappleCheck.hooked);
+            grappleCheck.hookedObj = other.gameObject;
+            
         }
     }
 }

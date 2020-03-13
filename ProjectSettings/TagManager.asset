@@ -8,6 +8,7 @@ TagManager:
   - hookable
   - a
   - ground
+  - restart
   layers:
   - Default
   - TransparentFX
