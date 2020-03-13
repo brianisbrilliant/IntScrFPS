@@ -47,7 +47,7 @@ public class GrappleHook : MonoBehaviour
         
         if(hooked){
             player.transform.position = Vector3.MoveTowards(player.transform.position, hook.transform.position, playerTravelSpeed);
-            //playerRB.velocity = new Vector3(10f, 0, 10f);
+            playerRB.velocity = new Vector3(10f, -10, 10f);
             player.GetComponent<Rigidbody>().useGravity = false;
         }
         else{
