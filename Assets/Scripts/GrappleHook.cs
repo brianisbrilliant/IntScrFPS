@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class GrappleHook : MonoBehaviour
 {
@@ -81,13 +80,4 @@ public class GrappleHook : MonoBehaviour
         shot = false;
         hooked = false;
     }
-
-    void OnTriggerEnter(Collider other){
-        if(other.gameObject.CompareTag("restart")){
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-    }
-
-
-
 }
