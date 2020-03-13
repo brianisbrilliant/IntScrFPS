@@ -7,7 +7,7 @@ public class GrappleHook : MonoBehaviour
     public float maxTravelDistance = 50;
     public float currentTravelDistance;
     public float hookTravelSpeed;
-    public float playerTravelSpeed = 0.1f;
+    public float playerTravelSpeed = 30f;
 
     public bool hooked;
     public bool shot;
@@ -18,6 +18,7 @@ public class GrappleHook : MonoBehaviour
     public GameObject player;
     
     public Rigidbody hookRB;
+    public Rigidbody playerRB;
 
     
 
@@ -37,7 +38,6 @@ public class GrappleHook : MonoBehaviour
 
         if(shot){
             hook.transform.Translate(Vector3.forward * Time.deltaTime * hookTravelSpeed);
-            //hookRB.AddRelatvieForce(Vector3.forward * Time.deltaTime * hookTravelSpeed);
             currentTravelDistance = Vector3.Distance(this.transform.position, hook.transform.position);
             if(currentTravelDistance >= maxTravelDistance){
                 ReturnHook();
@@ -47,7 +47,11 @@ public class GrappleHook : MonoBehaviour
         
         if(hooked){
             player.transform.position = Vector3.MoveTowards(player.transform.position, hook.transform.position, playerTravelSpeed);
+            //playerRB.velocity = new Vector3(10f, 0, 10f);
             player.GetComponent<Rigidbody>().useGravity = false;
+        }
+        else{
+            player.GetComponent<Rigidbody>().useGravity = true;
         }
 
 
