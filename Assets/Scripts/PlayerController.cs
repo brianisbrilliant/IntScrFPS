@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     {   
         // delete this after creating pickup functionality.
         heldItem = this.transform.GetChild(0).GetChild(0).GetComponent<IItem>();
+        this.GetComponent<Rigidbody>().useGravity = false;
     }
 
     // Update is called once per frame
@@ -24,5 +25,6 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.Mouse1)) {
 			heldItem.AltUse();
 		}
+
     }
 }

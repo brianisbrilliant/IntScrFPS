@@ -7,6 +7,10 @@ TagManager:
   - Bullet
   - BlockWall
   - BlockyBlock
+  - hookable
+  - a
+  - ground
+  - restart
   layers:
   - Default
   - TransparentFX
