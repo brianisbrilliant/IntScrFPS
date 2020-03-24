@@ -9,11 +9,6 @@ public class BlockGenerator : MonoBehaviour, IItem
 
     private int count = 0;
     private Vector3 myMouse;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     public void Use() {
         Debug.Log("Pow!! Main Use.");
