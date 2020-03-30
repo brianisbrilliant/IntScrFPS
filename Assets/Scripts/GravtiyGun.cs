@@ -46,6 +46,7 @@ public class GravtiyGun : MonoBehaviour, IItem
 
     public void Pickup(Transform hand)
     {
+        this.GetComponent<Rigidbody>().isKinematic = true;
         this.transform.SetParent(hand);
         this.transform.localPosition = Vector3.zero;
         this.transform.localRotation = Quaternion.identity;
@@ -129,7 +130,7 @@ public class GravtiyGun : MonoBehaviour, IItem
             Rigidbody heldBody = heldItem.GetComponent<Rigidbody>();
             heldBody.GetComponent<Collider>().enabled = true; // Only gets disabled due to possible issues
             heldBody.isKinematic = false; // Allows it to be forced
-            heldBody.AddRelativeForce(rayCaster.transform.forward * firePower, ForceMode.Impulse); // Fires it
+            heldBody.AddRelativeForce(Vector3.forward * firePower, ForceMode.Impulse); // Fires it
             holdingObject = false;
 
             // Resets position since gaining a child screws it up...
@@ -163,7 +164,7 @@ public class GravtiyGun : MonoBehaviour, IItem
                     // Places object in a position in front of gun
                     hit.transform.position = this.transform.GetChild(0).position;
                     hit.transform.SetParent(this.transform.GetChild(0));
-                    hit.transform.localRotation = this.transform.localRotation;
+                    hit.transform.localRotation = rayCaster.localRotation;
                 }
             }
         }
