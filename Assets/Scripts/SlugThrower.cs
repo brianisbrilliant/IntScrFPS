@@ -55,5 +55,16 @@ public class SlugThrower : MonoBehaviour, IItem
 		canFire = false;
 		yield return new WaitForSeconds(interval);
 		canFire = true;
-	}
+    }
+
+    public void Pickup(Transform hand)
+    {
+
+    }
+
+    public void Drop()
+    {
+
+    }
+
 }

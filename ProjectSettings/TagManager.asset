@@ -11,6 +11,7 @@ TagManager:
   - a
   - ground
   - restart
+  - Item
   layers:
   - Default
   - TransparentFX

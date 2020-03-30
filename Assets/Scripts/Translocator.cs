@@ -15,4 +15,15 @@ public class Translocator : MonoBehaviour, IItem
     public void AltUse() {
         Debug.Log("Alt use");
     }
+
+    public void Pickup(Transform hand)
+    {
+
+    }
+
+    public void Drop()
+    {
+
+    }
+
 }

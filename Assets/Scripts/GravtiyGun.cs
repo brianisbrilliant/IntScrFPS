@@ -43,6 +43,21 @@ public class GravtiyGun : MonoBehaviour, IItem
         PickUpItem();
     }
 
+
+    public void Pickup(Transform hand)
+    {
+        this.transform.SetParent(hand);
+        this.transform.localPosition = Vector3.zero;
+        this.transform.localRotation = Quaternion.identity;
+    }
+
+    public void Drop()
+    {
+        this.transform.SetParent(null);
+    }
+
+
+
     public void OnTriggerEnter(Collider other)
     {
         // Designed to fix FPS gravity when he lands
@@ -148,9 +163,10 @@ public class GravtiyGun : MonoBehaviour, IItem
                     // Places object in a position in front of gun
                     hit.transform.position = this.transform.GetChild(0).position;
                     hit.transform.SetParent(this.transform.GetChild(0));
-                    hit.transform.localRotation = Quaternion.identity;
+                    hit.transform.localRotation = this.transform.localRotation;
                 }
             }
         }
     }
+
 }

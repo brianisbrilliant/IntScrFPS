@@ -54,4 +54,15 @@ public class BlockGenerator : MonoBehaviour, IItem
             SceneManager.LoadScene(0);
         }
     }
+
+    public void Pickup(Transform hand)
+    {
+
+    }
+
+    public void Drop()
+    {
+
+    }
+
 }

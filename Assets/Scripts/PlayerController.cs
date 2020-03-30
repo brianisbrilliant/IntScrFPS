@@ -7,34 +7,43 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private IItem heldItem;
-    private IItem lastTouchedItem;
+    public GameObject lastTouchedItem;
+
+    private Transform hand;
 
     private bool canPickup = false;
 
     // Start is called before the first frame update
     void Start()
-    {   
+    {
+
+        hand = this.transform.GetChild(0).GetChild(0);
         // delete this after creating pickup functionality.
-        heldItem = this.transform.GetChild(0).GetChild(0).GetComponent<IItem>();
-        this.GetComponent<Rigidbody>().useGravity = false;
+        //heldItem = this.transform.GetChild(0).GetChild(0).GetComponent<IItem>();
+        //this.GetComponent<Rigidbody>().useGravity = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKey(KeyCode.Mouse0)) {
-			heldItem.Use();
-		}
-        if(Input.GetKey(KeyCode.Mouse1)) {
-			heldItem.AltUse();
-		}
+        if(heldItem != null)
+        {
+            if (Input.GetKey(KeyCode.Mouse0))
+            {
+                heldItem.Use();
+            }
+            if (Input.GetKey(KeyCode.Mouse1))
+            {
+                heldItem.AltUse();
+            }
+            if(Input.GetKey(KeyCode.Q))
+            {
+                heldItem.Drop();
+            }
+        }
         if(Input.GetKey(KeyCode.E))
         {
-            if(canPickup)
-            {
-                heldItem = lastTouchedItem;
-                heldItem.Pickup();
-            }
+            Pickup();
         }
 
     }
@@ -43,15 +52,38 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Item"))
         {
+            Debug.Log("Enter lastTouchedItem = " + lastTouchedItem);
+            Debug.Log("I can pickup an item");
             canPickup = true;
-            lastTouchedItem = other.gameObject.GetComponent<IItem>();
+            lastTouchedItem = other.gameObject;
         }
     }
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Item"))
         {
+            Debug.Log("I cannot pickup an item");
             canPickup = false;
+            lastTouchedItem = null;
+        }
+    }
+
+
+    void Pickup()
+    {
+        if (canPickup)
+        {
+            if (heldItem != null)
+            {
+                heldItem.Drop();
+                heldItem = null;
+            }
+            // what if we are already holding an item?
+            Debug.Log("I am trying to pick up item");
+            Debug.Log("lastTouchedItem = " + lastTouchedItem);
+            heldItem = lastTouchedItem.GetComponent<IItem>();
+            //lastTouchedItem = null;
+            heldItem.Pickup(hand);
         }
     }
 }

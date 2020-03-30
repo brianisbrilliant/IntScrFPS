@@ -80,4 +80,15 @@ public class GrappleHook : MonoBehaviour
         shot = false;
         hooked = false;
     }
+
+    public void Pickup(Transform hand)
+    {
+
+    }
+
+    public void Drop()
+    {
+
+    }
+
 }
