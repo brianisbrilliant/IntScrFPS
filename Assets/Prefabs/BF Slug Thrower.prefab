@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8507232961118978122}
   - component: {fileID: 5034761199459248452}
   - component: {fileID: 4516434704897991008}
-  - component: {fileID: 7050297617940107043}
   m_Layer: 0
   m_Name: Heat sink
   m_TagString: Untagged
@@ -78,19 +77,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7050297617940107043
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 250321748366933344}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &364799040359377658
 GameObject:
   m_ObjectHideFlags: 0
@@ -102,7 +88,6 @@ GameObject:
   - component: {fileID: 8547951632505984839}
   - component: {fileID: 80571410789012582}
   - component: {fileID: 1878547050727508988}
-  - component: {fileID: 318741967293726830}
   m_Layer: 0
   m_Name: Body
   m_TagString: Untagged
@@ -169,20 +154,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &318741967293726830
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364799040359377658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &487014047088355362
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +165,6 @@ GameObject:
   - component: {fileID: 4168752662850192475}
   - component: {fileID: 3366155351991010105}
   - component: {fileID: 6095418964624037141}
-  - component: {fileID: 5103791995351331247}
   m_Layer: 0
   m_Name: Heat sink
   m_TagString: Untagged
@@ -261,19 +231,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &5103791995351331247
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 487014047088355362}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1183138869204345985
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,7 +242,6 @@ GameObject:
   - component: {fileID: 826653849615952930}
   - component: {fileID: 2946715224278628755}
   - component: {fileID: 1766507225970011064}
-  - component: {fileID: 9178313761738266021}
   m_Layer: 0
   m_Name: Cap
   m_TagString: Untagged
@@ -352,19 +308,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!135 &9178313761738266021
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1183138869204345985}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2755377209544159739
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,7 +319,6 @@ GameObject:
   - component: {fileID: 2173680295838652048}
   - component: {fileID: 3372906563513851245}
   - component: {fileID: 7458454969985516849}
-  - component: {fileID: 786173045624000765}
   m_Layer: 0
   m_Name: Ironsight frontleft
   m_TagString: Untagged
@@ -443,19 +385,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &786173045624000765
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2755377209544159739}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3025040586488161301
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,7 +396,6 @@ GameObject:
   - component: {fileID: 2698697693385962358}
   - component: {fileID: 807989672409561004}
   - component: {fileID: 5077424417601309984}
-  - component: {fileID: 9114748282032428465}
   m_Layer: 0
   m_Name: Ironsight frontright
   m_TagString: Untagged
@@ -534,19 +462,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &9114748282032428465
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3025040586488161301}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3128762358709000641
 GameObject:
   m_ObjectHideFlags: 0
@@ -558,7 +473,6 @@ GameObject:
   - component: {fileID: 6338187028971762282}
   - component: {fileID: 8828144645677447368}
   - component: {fileID: 7408132546829245724}
-  - component: {fileID: 4815951719540562616}
   m_Layer: 0
   m_Name: Ironsight back
   m_TagString: Untagged
@@ -625,19 +539,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &4815951719540562616
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3128762358709000641}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5467046949661368751
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +550,6 @@ GameObject:
   - component: {fileID: 7309431432418850244}
   - component: {fileID: 1897216310091194706}
   - component: {fileID: 5048206704573038608}
-  - component: {fileID: 7646843133915151856}
   m_Layer: 0
   m_Name: Heat sink
   m_TagString: Untagged
@@ -716,19 +616,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7646843133915151856
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5467046949661368751}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5469064386051939728
 GameObject:
   m_ObjectHideFlags: 0
@@ -740,7 +627,6 @@ GameObject:
   - component: {fileID: 2787521710118717195}
   - component: {fileID: 893324996007958360}
   - component: {fileID: 890041384747399667}
-  - component: {fileID: 6689309381096856933}
   m_Layer: 0
   m_Name: Barrel
   m_TagString: Untagged
@@ -807,20 +693,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!136 &6689309381096856933
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5469064386051939728}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!1 &6206373911671409765
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,9 +704,12 @@ GameObject:
   - component: {fileID: 9068687505125616483}
   - component: {fileID: 6317600804618293473}
   - component: {fileID: 5902598414354920098}
+  - component: {fileID: 3155820028321702082}
+  - component: {fileID: 1182593855}
+  - component: {fileID: 7017267252806443006}
   m_Layer: 0
   m_Name: BF Slug Thrower
-  m_TagString: Untagged
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -881,6 +756,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4977271530489489513, guid: 29d8ac94b5a41624e9af638402ada838,
     type: 3}
   bulletSpeed: 50
+  interval: 0.1
   shot: {fileID: 8300000, guid: 1c5097abcb8e37548bd5a0486e55a798, type: 3}
 --- !u!82 &5902598414354920098
 AudioSource:
@@ -978,6 +854,47 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!65 &3155820028321702082
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206373911671409765}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.31, y: 0.5393096, z: 1.1095315}
+  m_Center: {x: 0, y: -0.06534523, z: 0.04098028}
+--- !u!54 &1182593855
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206373911671409765}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &7017267252806443006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6206373911671409765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6376f870ca8e4c943b13145526609c0c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7102840419658797851
 GameObject:
   m_ObjectHideFlags: 0
@@ -1019,7 +936,6 @@ GameObject:
   - component: {fileID: 2471383252239686358}
   - component: {fileID: 7832402513006157012}
   - component: {fileID: 4033717058933216840}
-  - component: {fileID: 6353977514456237647}
   m_Layer: 0
   m_Name: Ironsight bar
   m_TagString: Untagged
@@ -1086,19 +1002,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6353977514456237647
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7586888860680536445}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8145401362508600653
 GameObject:
   m_ObjectHideFlags: 0
@@ -1110,7 +1013,6 @@ GameObject:
   - component: {fileID: 7022535734643357069}
   - component: {fileID: 1041763099367595578}
   - component: {fileID: 4372461818991565790}
-  - component: {fileID: 869403301017041284}
   m_Layer: 0
   m_Name: Handle
   m_TagString: Untagged
@@ -1177,19 +1079,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &869403301017041284
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8145401362508600653}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8497196488865176045
 GameObject:
   m_ObjectHideFlags: 0
@@ -1201,7 +1090,6 @@ GameObject:
   - component: {fileID: 9180940068901416130}
   - component: {fileID: 154433478872647670}
   - component: {fileID: 8970938543659396258}
-  - component: {fileID: 7740872478770392685}
   m_Layer: 0
   m_Name: Heat sink
   m_TagString: Untagged
@@ -1268,16 +1156,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &7740872478770392685
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8497196488865176045}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
