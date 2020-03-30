@@ -21,9 +21,12 @@ public class GravtiyGun : MonoBehaviour, IItem
     [Tooltip("Power you use when pushing objects.")]
     public float pushPower = 10f;
 
+    private Rigidbody rb;
+
     // Start is called before the first frame update
     void Start()
     {
+        rb = this.GetComponent<Rigidbody>();
         // Sets position in front of raycaster
         Holder.position = rayCaster.position + rayCaster.forward;
     }
@@ -46,14 +49,17 @@ public class GravtiyGun : MonoBehaviour, IItem
 
     public void Pickup(Transform hand)
     {
-        this.GetComponent<Rigidbody>().isKinematic = true;
+        rb.isKinematic = true;
         this.transform.SetParent(hand);
         this.transform.localPosition = Vector3.zero;
         this.transform.localRotation = Quaternion.identity;
+        this.GetComponent<SpinItem>().enabled = false;
     }
 
     public void Drop()
     {
+        rb.isKinematic = false;
+        rb.AddRelativeForce(Vector3.forward, ForceMode.Impulse);
         this.transform.SetParent(null);
     }
 
