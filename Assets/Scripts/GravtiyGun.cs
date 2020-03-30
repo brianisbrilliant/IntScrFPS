@@ -31,13 +31,57 @@ public class GravtiyGun : MonoBehaviour, IItem
     public void Use()
     {
         Debug.Log("Use");
+        // If item held, throws it
+        ThrowItem();
+        // Runs if item is not held
+        ShoveObject();
+    }
+    public void AltUse()
+    {
+        Debug.Log("Alt Use");
+        // Picks up item if it is in front of player
+        PickUpItem();
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        // Designed to fix FPS gravity when he lands
+        ResetFPSController();
+    }
+
+    public void ResetFPSController()
+    {
+        // Used for jump pad, to make player work right when they hit the ground.
+        Rigidbody grandfatherBody = this.GetComponentInParent<Camera>().GetComponentInParent<Rigidbody>();
+        CharacterController grandfatherController = this.GetComponentInParent<Camera>().GetComponentInParent<CharacterController>();
+        grandfatherController.enabled = true;
+        grandfatherBody.isKinematic = true;
+
+    }
+
+    public void BouncePad(RaycastHit hit)
+    {
+        if (hit.transform.name.ToLower().Contains("bouncepad"))
+        {
+            // Painful code to make the FPS controller fly
+            Rigidbody grandfatherBody = this.GetComponentInParent<Camera>().GetComponentInParent<Rigidbody>();
+            CharacterController grandfatherController = this.GetComponentInParent<Camera>().GetComponentInParent<CharacterController>();
+            grandfatherController.enabled = false;
+            grandfatherBody.isKinematic = false;
+            //grandfatherBody.mass = .01f;
+            grandfatherBody.AddRelativeForce(Vector3.up * 100);
+        }
+    }
+
+
+    public void ShoveObject()
+    {
         RaycastHit hit;
         // Does the ray intersect any objects excluding the player layer
         Debug.DrawRay(rayCaster.position, transform.TransformDirection(Vector3.forward * pushRange), Color.green);
-        // Runs if not holding object
+
         if (!holdingObject)
         {
-
             if (Physics.Raycast(rayCaster.position, transform.TransformDirection(Vector3.forward * pushRange), out hit, 3f))
             {
                 // Checks if it was an object that can be used
@@ -52,20 +96,15 @@ public class GravtiyGun : MonoBehaviour, IItem
                 }
                 else // Runs if object isn't a moveable object. Then checks if it was a jump pad.
                 {
-                    if(hit.transform.name.ToLower().Contains("bouncepad"))
-                    {
-                        // Painful code to make the FPS controller fly
-                        Rigidbody grandfatherBody = this.GetComponentInParent<Camera>().GetComponentInParent<Rigidbody>();
-                        CharacterController grandfatherController = this.GetComponentInParent<Camera>().GetComponentInParent<CharacterController>();
-                        grandfatherController.enabled = false;
-                        grandfatherBody.isKinematic = false;
-                        //grandfatherBody.mass = .01f;
-                        grandfatherBody.AddRelativeForce(Vector3.up * 100);
-                    }
+                    BouncePad(hit);
                 }
             }
         }
-        else // Handles firing object that's held
+    }
+
+    public void ThrowItem()
+    {
+        if(holdingObject)
         {
             // Gets held item
             Transform heldItem = this.transform.GetChild(0).GetChild(0);
@@ -82,11 +121,10 @@ public class GravtiyGun : MonoBehaviour, IItem
             Holder.position = rayCaster.position + rayCaster.forward;
         }
     }
-    public void AltUse()
-    {
-        Debug.Log("Alt Use");
 
-        if(!holdingObject)
+    public void PickUpItem()
+    {
+        if (!holdingObject) // Only runs if not holding object
         {
             RaycastHit hit;
             // Does the ray intersect any objects excluding the player layer
@@ -114,14 +152,5 @@ public class GravtiyGun : MonoBehaviour, IItem
                 }
             }
         }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        // Used for jump pad, to make player work right when they hit the ground.
-            Rigidbody grandfatherBody = this.GetComponentInParent<Camera>().GetComponentInParent<Rigidbody>();
-            CharacterController grandfatherController = this.GetComponentInParent<Camera>().GetComponentInParent<CharacterController>();
-            grandfatherController.enabled = true;
-            grandfatherBody.isKinematic = true;
     }
 }

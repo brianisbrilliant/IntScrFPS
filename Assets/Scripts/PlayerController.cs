@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private IItem heldItem;
+    private IItem lastTouchedItem;
+
+    private bool canPickup = false;
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,30 @@ public class PlayerController : MonoBehaviour
         if(Input.GetKey(KeyCode.Mouse1)) {
 			heldItem.AltUse();
 		}
+        if(Input.GetKey(KeyCode.E))
+        {
+            if(canPickup)
+            {
+                heldItem = lastTouchedItem;
+                heldItem.Pickup();
+            }
+        }
 
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            canPickup = true;
+            lastTouchedItem = other.gameObject.GetComponent<IItem>();
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.CompareTag("Item"))
+        {
+            canPickup = false;
+        }
     }
 }
