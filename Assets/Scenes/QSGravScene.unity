@@ -1703,6 +1703,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1037776870758327420, guid: c62bfb4df6fb79e45852b815b7d7234e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.7870004
+      objectReference: {fileID: 0}
     - target: {fileID: 1844623126935947112, guid: c62bfb4df6fb79e45852b815b7d7234e,
         type: 3}
       propertyPath: m_Name
@@ -1768,6 +1773,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7562397305336174044, guid: c62bfb4df6fb79e45852b815b7d7234e,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.787
+      objectReference: {fileID: 0}
     - target: {fileID: 8571523703075304789, guid: c62bfb4df6fb79e45852b815b7d7234e,
         type: 3}
       propertyPath: pushPower
@@ -1777,6 +1787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: firePower
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8571523703075304789, guid: c62bfb4df6fb79e45852b815b7d7234e,
+        type: 3}
+      propertyPath: neededForce
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c62bfb4df6fb79e45852b815b7d7234e, type: 3}
