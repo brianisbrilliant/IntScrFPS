@@ -136,6 +136,12 @@ public class GravtiyGun : MonoBehaviour, IItem
             Rigidbody heldBody = heldItem.GetComponent<Rigidbody>();
             heldBody.GetComponent<Collider>().enabled = true; // Only gets disabled due to possible issues
             heldBody.isKinematic = false; // Allows it to be forced
+
+
+            //this.transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
+
+            heldItem.transform.rotation = rayCaster.localRotation;
+
             heldBody.AddRelativeForce(Vector3.forward * firePower, ForceMode.Impulse); // Fires it
             holdingObject = false;
 
