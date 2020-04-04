@@ -22,6 +22,9 @@ public class GravtiyGun : MonoBehaviour, IItem
     public float pushPower = 10f;
 
     private Rigidbody rb;
+    private bool turningLeft = false, turningRight = false;
+    private float turningDegree = 0;
+    Vector3 oldEulerAngles;
 
     // Start is called before the first frame update
     void Start()
@@ -29,6 +32,7 @@ public class GravtiyGun : MonoBehaviour, IItem
         rb = this.GetComponent<Rigidbody>();
         // Sets position in front of raycaster
         Holder.position = rayCaster.position + rayCaster.forward;
+        oldEulerAngles = this.transform.rotation.eulerAngles;
     }
 
     public void Use()
@@ -63,6 +67,64 @@ public class GravtiyGun : MonoBehaviour, IItem
         this.transform.SetParent(null);
     }
 
+
+    public void Update()
+    {
+
+        Debug.Log("This is how far left " + (oldEulerAngles.x - transform.rotation.eulerAngles.x));
+
+        Transform heldItem = this.transform.GetChild(0).GetChild(0);
+        // Allows for .5 dead zone
+        if (oldEulerAngles.x - this.transform.rotation.eulerAngles.x < .5 && oldEulerAngles.x - this.transform.rotation.eulerAngles.x > -.5)
+        {
+            //NO ROTATION
+            if(turningDegree < 0.02 && turningDegree > -0.02) // Resets to normal if position is almost normal
+            {
+                heldItem.transform.position = this.Holder.transform.position;
+            } // Handles placing it back
+            else if(turningDegree < 0)
+            {
+                turningDegree += 0.01f;
+            }
+            else if (turningDegree > 0)
+            {
+                turningDegree -= 0.01f;
+            }
+        }
+        // Turning right
+        else if (oldEulerAngles.x - this.transform.rotation.eulerAngles.x > 1)
+        {
+            oldEulerAngles = this.transform.rotation.eulerAngles;
+            //DO WHATEVER YOU WANT
+            Debug.Log("Right");
+            if(turningDegree < 2)
+            {
+                turningDegree += 0.03f;
+            }
+
+        }
+        // Turning left
+        else if (oldEulerAngles.x - this.transform.rotation.eulerAngles.x < 1)
+        {
+            oldEulerAngles = this.transform.rotation.eulerAngles;
+            //DO WHATEVER YOU WANT
+            if (turningDegree > -2)
+            {
+                turningDegree -= 0.03f;
+            }
+            Debug.Log("Left");
+
+        }
+        else
+        {
+            oldEulerAngles = this.transform.rotation.eulerAngles;
+            //DO WHATEVER YOU WANT
+            Debug.Log("Rotation");
+        }
+        Debug.Log(turningDegree);
+        // Places helditem at relative postion
+        heldItem.transform.position = this.Holder.transform.position + Holder.right * turningDegree;
+    }
 
 
     public void OnTriggerEnter(Collider other)
@@ -130,12 +192,15 @@ public class GravtiyGun : MonoBehaviour, IItem
         {
             // Gets held item
             Transform heldItem = this.transform.GetChild(0).GetChild(0);
+            heldItem.position = Holder.position;
+            turningDegree = 0;
             // Removed child object from parents
             heldItem.parent = null;
             // Get componenets
             Rigidbody heldBody = heldItem.GetComponent<Rigidbody>();
             heldBody.GetComponent<Collider>().enabled = true; // Only gets disabled due to possible issues
             heldBody.isKinematic = false; // Allows it to be forced
+
 
 
             //this.transform.Rotate(0, rotationSpeed * Time.deltaTime, 0);
@@ -177,6 +242,7 @@ public class GravtiyGun : MonoBehaviour, IItem
                     hit.transform.position = this.transform.GetChild(0).position;
                     hit.transform.SetParent(this.transform.GetChild(0));
                     hit.transform.localRotation = rayCaster.localRotation;
+                    
                 }
             }
         }
