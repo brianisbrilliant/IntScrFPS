@@ -8,6 +8,13 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private IItem heldItem;
 
+	private List<IItem> inv;
+	// if I pick up a new item while I am holding an item,
+	// move my held Item to the inventory.
+	// if I drop an item but still have an item in inventory,
+	// make that item active.
+	// if I press Tab, select the next item in the inventory.
+
     public GameObject lastTouchedItem;
 
 	private Transform hand;
@@ -45,9 +52,9 @@ public class PlayerController : MonoBehaviour
 	void Pickup() {
 		if(canPickup) {
 			Debug.Log("lasttoucheditem = " + lastTouchedItem);
-			// what if we are already holding an item? (drop it!)
+			// what if we are already holding an item? (hide it!)
 			if(heldItem != null) {
-				heldItem.Drop();
+				heldItem.Drop();			// change this it.
 				heldItem = null;
 			}
 			Debug.Log("I am trying to pick up an item.");
@@ -57,20 +64,20 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-    void OnTriggerEnter(Collider other) {
-        if(other.gameObject.CompareTag("Item")) {
-            Debug.Log("I can pickup an item");
-            canPickup = true;
-            lastTouchedItem = other.gameObject;
+	void OnTriggerEnter(Collider other) {
+		if(other.gameObject.CompareTag("Item")) {
+			Debug.Log("I can pickup an item");
+			canPickup = true;
+			lastTouchedItem = other.gameObject;
 			Debug.Log("lasttoucheditem = " + lastTouchedItem);
-        }
-    }
+		}
+	}
 
-    void OnTriggerExit(Collider other) {
-        if(other.gameObject.CompareTag("Item")) {
-            Debug.Log("I can not pickup an item");
-            canPickup = false;
-            lastTouchedItem = null;
-        }
-    }
+	void OnTriggerExit(Collider other) {
+		if(other.gameObject.CompareTag("Item")) {
+			Debug.Log("I can not pickup an item");
+			canPickup = false;
+			lastTouchedItem = null;
+		}
+	}
 }

@@ -59,7 +59,6 @@ public class SlugThrower : MonoBehaviour, IItem
 		this.transform.localRotation = Quaternion.identity;
 		rb.isKinematic = true;
 		Destroy(this.GetComponent<SpinItem>());	
-		
 	}
 
 	public void Drop() {
