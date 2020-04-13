@@ -20,11 +20,6 @@ public class PlayerController : MonoBehaviour
 	// make that item active.
 	// if I press Tab, select the next item in the inventory.
 
-    public GameObject lastTouchedItem;
-
-	private Transform hand;
-
-    private bool canPickup = false;
 
     // Start is called before the first frame update
     void Start()

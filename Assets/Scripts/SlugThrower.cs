@@ -75,14 +75,4 @@ public class SlugThrower : MonoBehaviour, IItem
 		canFire = true;
     }
 
-    public void Pickup(Transform hand)
-    {
-
-    }
-
-    public void Drop()
-    {
-
-    }
-
 }
