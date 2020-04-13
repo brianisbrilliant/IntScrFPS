@@ -5,6 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - BlockWall
+  - BlockyBlock
+  - hookable
+  - a
+  - ground
+  - restart
+  - Item
   layers:
   - Default
   - TransparentFX
