@@ -19,4 +19,15 @@ public class HookShot : MonoBehaviour, IItem
         Debug.Log("AltUse()");
     }
 
+    public void Pickup(Transform hand)
+    {
+
+    }
+
+    public void Drop()
+    {
+
+    }
+
+
 }

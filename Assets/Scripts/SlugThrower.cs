@@ -73,5 +73,6 @@ public class SlugThrower : MonoBehaviour, IItem
 		canFire = false;
 		yield return new WaitForSeconds(interval);
 		canFire = true;
-	}
+    }
+
 }

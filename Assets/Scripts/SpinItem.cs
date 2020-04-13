@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class SpinItem : MonoBehaviour
 {
-	[Range(0f, 360f)]
-	public float rotationSpeed = 30f;
-
+    [Range(0,360)]
+    public float rotationSpeed = 30f;
     // Update is called once per frame
     void Update()
     {
