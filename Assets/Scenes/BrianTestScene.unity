@@ -1928,7 +1928,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd0ce860f53626840b23b7ce8905576f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inv: []
   lastTouchedItem: {fileID: 0}
+  debug: 0
 --- !u!135 &803532976
 SphereCollider:
   m_ObjectHideFlags: 0

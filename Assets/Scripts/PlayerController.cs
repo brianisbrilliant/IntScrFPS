@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private IItem heldItem;
 
-	private List<IItem> inv;
+	public List<GameObject> inv;
 	// if I pick up a new item while I am holding an item,
 	// move my held Item to the inventory.
 	// if I drop an item but still have an item in inventory,
@@ -18,6 +18,8 @@ public class PlayerController : MonoBehaviour
     public GameObject lastTouchedItem;
 
 	private Transform hand;
+
+	public bool debug = false;
 
     private bool canPickup = false;
 
@@ -38,9 +40,14 @@ public class PlayerController : MonoBehaviour
 			if(Input.GetKey(KeyCode.Mouse1)) {
 				heldItem.AltUse();
 			}
-			if(Input.GetKey(KeyCode.Q)){
+			if(Input.GetKeyDown(KeyCode.Q)){
 				heldItem.Drop();
-				heldItem = null;
+				inv.Remove(inv[inv.Count - 1]);
+				heldItem = hand.GetChild(inv.Count - 1).GetComponent<IItem>();
+				hand.GetChild(inv.Count - 1).gameObject.SetActive(true);
+			}
+			if(Input.GetKey(KeyCode.Tab)) {
+				SwitchItem();
 			}
 		}
 
@@ -54,14 +61,30 @@ public class PlayerController : MonoBehaviour
 			Debug.Log("lasttoucheditem = " + lastTouchedItem);
 			// what if we are already holding an item? (hide it!)
 			if(heldItem != null) {
-				heldItem.Drop();			// change this it.
+				// heldItem.Drop();			// change this it.
 				heldItem = null;
+				hand.GetChild(inv.Count - 1).gameObject.SetActive(false);
+				
 			}
 			Debug.Log("I am trying to pick up an item.");
 			heldItem = lastTouchedItem.GetComponent<IItem>();
+
+			inv.Add(lastTouchedItem);			// there will be a lot of getComponent happening.
+
+			// if(debug) {
+			// 	Debug.Log("Your inventory size = " + inv.Count);
+			// }
 			//lastTouchedItem = null;
 			heldItem.Pickup(hand);
+
+			// resetting lastTouchedItem and canPickup.
+			canPickup = false;
+			lastTouchedItem = null;
 		}
+	}
+
+	void SwitchItem() {
+		
 	}
 
 	void OnTriggerEnter(Collider other) {
