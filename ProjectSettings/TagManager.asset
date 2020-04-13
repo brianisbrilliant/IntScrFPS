@@ -5,6 +5,18 @@ TagManager:
   serializedVersion: 2
   tags:
   - Bullet
+  - BlockWall
+  - BlockyBlock
+  - hookable
+  - a
+  - ground
+  - restart
+  - Item
+  - PortalWall
+  - PurpPortal
+  - BluePortal
+  - CamB
+  - CamP
   layers:
   - Default
   - TransparentFX
