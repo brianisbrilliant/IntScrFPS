@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,14 +13,24 @@ public class PlayerController : MonoBehaviour
 
     private bool canPickup = false;
 
+	private List<IItem> inv;
+	// if I pick up a new item while I am holding an item,
+	// move my held Item to the inventory.
+	// if I drop an item but still have an item in inventory,
+	// make that item active.
+	// if I press Tab, select the next item in the inventory.
+
+    public GameObject lastTouchedItem;
+
+	private Transform hand;
+
+    private bool canPickup = false;
+
     // Start is called before the first frame update
     void Start()
-    {
-
-        hand = this.transform.GetChild(0).GetChild(0);
-        // delete this after creating pickup functionality.
-        //heldItem = this.transform.GetChild(0).GetChild(0).GetComponent<IItem>();
-        //this.GetComponent<Rigidbody>().useGravity = false;
+    {   
+        // This is the position you want to hold items at.
+    	  hand = this.transform.GetChild(0).GetChild(0);
     }
 
     // Update is called once per frame
@@ -45,7 +55,6 @@ public class PlayerController : MonoBehaviour
         {
             Pickup();
         }
-
     }
 
     void OnTriggerEnter(Collider other)
@@ -58,6 +67,7 @@ public class PlayerController : MonoBehaviour
             lastTouchedItem = other.gameObject;
         }
     }
+    
     void OnTriggerExit(Collider other)
     {
         if (other.gameObject.CompareTag("Item"))

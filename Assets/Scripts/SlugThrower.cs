@@ -23,13 +23,14 @@ public class SlugThrower : MonoBehaviour, IItem
 	private AudioSource aud;
 	private bool canFire = true;
 
-
+	private Rigidbody rb;
 
     // Start is called before the first frame update
     void Start()
     {
         bulletSpawn = this.transform.GetChild(0);
 		aud = this.GetComponent<AudioSource>();
+		rb = this.GetComponent<Rigidbody>();
     }
 
 	public void Use() {
@@ -49,6 +50,23 @@ public class SlugThrower : MonoBehaviour, IItem
 
 	public void AltUse() {
 		Debug.Log("Alt fire!");
+	}
+
+	public void Pickup(Transform hand) {
+		Debug.Log("I am picked up!");
+		this.transform.SetParent(hand);
+		this.transform.localPosition = Vector3.zero;
+		this.transform.localRotation = Quaternion.identity;
+		rb.isKinematic = true;
+		Destroy(this.GetComponent<SpinItem>());	
+	}
+
+	public void Drop() {
+		Debug.Log("Dropping heldItem");
+		this.transform.SetParent(null);
+		// throw item
+		rb.isKinematic = false;
+		rb.AddRelativeForce(Vector3.forward * 5, ForceMode.Impulse);
 	}
 
 	IEnumerator WaitToFire() {
