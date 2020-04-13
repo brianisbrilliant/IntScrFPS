@@ -7,6 +7,8 @@ public class StepThruPortal : MonoBehaviour
     public Transform otherPortal;
     public Transform player;
     private bool playerIsOverlapping = false;
+    public float timer;
+    public float timerTarget = 3f;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +26,7 @@ public class StepThruPortal : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (playerIsOverlapping){
             Debug.Log("Player is overlapping starting to teleport");
             Vector3 portalToPlayer = player.position - transform.position;
@@ -35,7 +38,7 @@ public class StepThruPortal : MonoBehaviour
                 player.Rotate(Vector3.up, rotationDiff);
 
                 Vector3 positionOffset = Quaternion.Euler(0f, rotationDiff, 0f) * portalToPlayer;
-                player.position = otherPortal.position * 2 + positionOffset;
+                player.position = otherPortal.position + positionOffset;
                 playerIsOverlapping = false;
                 Debug.Log("Player is not overlapping + Teleported");
             }
@@ -46,8 +49,12 @@ public class StepThruPortal : MonoBehaviour
 
     void OnTriggerEnter(Collider other){
         if(other.tag == "Player"){
+            // if (timerTarget <= timer){
+            //     playerIsOverlapping = true;
+            //     Debug.Log("Player is overlapping");
+            // }
             playerIsOverlapping = true;
-            Debug.Log("Player is overlapping");
+            
 
         }
     }
