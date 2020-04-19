@@ -12,6 +12,11 @@ TagManager:
   - ground
   - restart
   - Item
+  - PortalWall
+  - PurpPortal
+  - BluePortal
+  - CamB
+  - CamP
   layers:
   - Default
   - TransparentFX

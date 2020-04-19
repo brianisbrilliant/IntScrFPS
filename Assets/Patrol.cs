@@ -1,4 +1,4 @@
-﻿// Patrol.cs
+// Patrol.cs
 using UnityEngine;
 using UnityEngine.AI;
 using System.Collections;
