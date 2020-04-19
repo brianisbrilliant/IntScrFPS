@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
     private bool canPickup = false;
 
-	private List<IItem> inv;
+	public List<GameObject> inv;
 	// if I pick up a new item while I am holding an item,
 	// move my held Item to the inventory.
 	// if I drop an item but still have an item in inventory,
